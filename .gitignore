@@ -1,0 +1,19 @@
+# AWS certificates — never share these!
+certs/
+
+# Environment variables — contains your endpoint!
+.env
+
+# Python virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# nohup output
+nohup.out
+
+# ZIP files
+*.zip

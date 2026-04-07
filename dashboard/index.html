@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚲 BikeGuard Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <h1>🚲 BikeGuard Dashboard</h1>
+  <p class="subtitle">Real-time bike theft detection — Dublin, Ireland</p>
+
+  <!-- Theft Alert Banner -->
+  <div class="alert-banner" id="alertBanner">
+    🚨 THEFT DETECTED! Your bike is under attack!
+  </div>
+
+  <!-- Status Cards -->
+  <div class="status-bar">
+    <div class="status-card" id="cardVibration">
+      <div class="label">🔴 Vibration</div>
+      <div class="value" id="valVibration">--</div>
+    </div>
+    <div class="status-card" id="cardGps">
+      <div class="label">📍 GPS Status</div>
+      <div class="value" id="valGps">--</div>
+    </div>
+    <div class="status-card" id="cardTilt">
+      <div class="label">📐 Tilt</div>
+      <div class="value" id="valTilt">--</div>
+    </div>
+    <div class="status-card" id="cardSound">
+      <div class="label">🔊 Sound</div>
+      <div class="value" id="valSound">--</div>
+    </div>
+    <div class="status-card" id="cardBattery">
+      <div class="label">🔋 Battery</div>
+      <div class="value" id="valBattery">--</div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="grid">
+    <div class="chart-card">
+      <h3>🔴 Vibration (G-force)</h3>
+      <canvas id="chartVibration"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>📐 Tilt Angle (degrees)</h3>
+      <canvas id="chartTilt"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>🔊 Sound Level (dB)</h3>
+      <canvas id="chartSound"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>🔋 Battery Level (%)</h3>
+      <canvas id="chartBattery"></canvas>
+    </div>
+  </div>
+
+  <!-- Events Log -->
+  <div class="theft-log">
+    <h3>📋 Recent Events</h3>
+    <div id="eventLog">
+      <p style="color:#555">Loading events...</p>
+    </div>
+  </div>
+
+  <p class="refresh-info">
+    🔄 Auto-refreshing every 10 seconds |
+    Last updated: <span id="lastUpdate">--</span>
+  </p>
+
+  <script src="app.js"></script>
+</body>
+</html>
