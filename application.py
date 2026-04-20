@@ -5,10 +5,9 @@ from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 from datetime import datetime, timezone, timedelta
 
-# ─────────────────────────────────────────────
 # Flask app setup
 # Elastic Beanstalk looks for 'application' variable
-# ─────────────────────────────────────────────
+
 application = Flask(__name__, static_folder='dashboard')
 CORS(application)
 
@@ -23,9 +22,7 @@ class DecimalEncoder(json.JSONEncoder):
             return float(obj)
         return super().default(obj)
 
-# ─────────────────────────────────────────────
 # Routes
-# ─────────────────────────────────────────────
 
 @application.route('/')
 def index():
@@ -90,8 +87,7 @@ def get_data():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-# ─────────────────────────────────────────────
+
 # Run the app
-# ─────────────────────────────────────────────
 if __name__ == '__main__':
     application.run(host='0.0.0.0', port=8080, debug=False)

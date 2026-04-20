@@ -6,9 +6,8 @@ from awsiot import mqtt_connection_builder
 from dotenv import load_dotenv
 import os
 
-# ─────────────────────────────────────────────
+
 # Load settings from .env file
-# ─────────────────────────────────────────────
 load_dotenv()
 
 ENDPOINT  = os.getenv("AWS_ENDPOINT")
@@ -29,9 +28,8 @@ SENSOR_TOPICS = [
 # Topic to send processed data to the cloud backend
 DISPATCH_TOPIC = "bike/fog/processed"
 
-# ─────────────────────────────────────────────
 # Fog node memory - tracks recent sensor states
-# ─────────────────────────────────────────────
+
 sensor_states = {
     "vibration": "NORMAL",
     "gps":       "PARKED",
@@ -108,9 +106,8 @@ def on_message_received(topic, payload, **kwargs):
     except Exception as e:
         print(f"❌ Error processing message: {e}")
 
-# ─────────────────────────────────────────────
 # Connect to AWS IoT Core
-# ─────────────────────────────────────────────
+
 io.init_logging(getattr(io.LogLevel, 'Fatal'), 'stderr')
 
 connection = mqtt_connection_builder.mtls_from_path(
@@ -140,9 +137,8 @@ for topic in SENSOR_TOPICS:
 print("\n🧠 Fog node is running and listening for sensor data...")
 print("Press Ctrl+C to stop\n")
 
-# ─────────────────────────────────────────────
 # Keep running forever until Ctrl+C
-# ─────────────────────────────────────────────
+
 try:
     while True:
         time.sleep(1)

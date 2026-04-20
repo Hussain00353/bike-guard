@@ -21,7 +21,7 @@ echo "✅ All 5 sensors started!"
 nohup venv/bin/python fog/fog_node.py > /tmp/fog.log 2>&1 &
 echo "✅ Fog node started!"
 
-# Start dashboard server
-#echo "✅ Starting dashboard server..."
-#echo "🌐 Open: https://6e8e3c0e3b1b4aad8ab458d59d502dd7.vfs.cloud9.us-east-1.amazonaws.com:8082"
-#python3 server.py
+ Start dashboard server
+echo "✅ Starting dashboard server..."
+echo "🌐 Open: https://6e8e3c0e3b1b4aad8ab458d59d502dd7.vfs.cloud9.us-east-1.amazonaws.com:8082"
+python3 server.py

@@ -1,11 +1,7 @@
-// ─────────────────────────────────────
-// Replace with your API Gateway URL!
-// ─────────────────────────────────────
 const API_URL = '/data';
 //const API_URL = 'https://tzkfzt5af6.execute-api.us-east-1.amazonaws.com/prod/data';
-// ─────────────────────────────────────
+
 // Chart Setup
-// ─────────────────────────────────────
 const maxPoints = 20;
 
 function makeChart(id, label, color) {
@@ -60,9 +56,7 @@ function addPoint(chart, label, value) {
   chart.update();
 }
 
-// ─────────────────────────────────────
 // Fetch data from API Gateway
-// ─────────────────────────────────────
 async function fetchData() {
   try {
     const response = await fetch(API_URL + '?t=' + Date.now());
@@ -74,9 +68,7 @@ async function fetchData() {
   }
 }
 
-// ─────────────────────────────────────
 // Update dashboard with latest data
-// ─────────────────────────────────────
 function updateDashboard(items) {
   if (!items.length) return;
 
@@ -197,9 +189,7 @@ function updateDashboard(items) {
     new Date().toLocaleTimeString('en-IE', {timeZone: 'Europe/Dublin'});
 }
 
-// ─────────────────────────────────────
 // Main loop — refresh every 10 seconds
-// ─────────────────────────────────────
 async function refresh() {
   // Clear all charts before redrawing
   Object.values(charts).forEach(chart => {
